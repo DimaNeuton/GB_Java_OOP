@@ -10,23 +10,40 @@ package HomeTask02_1;
 // Просыми словами : Минимум - Реализовать несколько интерфейсов в пред задаче
 
 
+
 public class Task01 {
     public static void main(String[] args) {
 
         Father f1 = new Father("John", 42, "male");
         f1.about();
+
+//        IsLegalAge<Integer, Boolean> legAge1 = x -> {     // Лямбда-выражение с тирнарным оператором и типами Integer и Integer
+//            int legal = 18;
+//            return x >= legal;
+//        };
+//        System.out.println(legAge1.isLegalAge(f1.getAge()) ?
+//                  String.format("%s - совершеннолетний", f1.getName()) :
+//                  String.format("%s - не совершеннолетний", f1.getName()));
+
+        IsLegalAge<Integer, Integer> legAge1 = x -> (x >= 18 ? 1 : -1);  // Лямбда-выражение с тирнарным оператором и типами Integer и Integer
+        System.out.println(legAge1.isLegalAge(f1.getAge()) > 0 ?
+                String.format("%s - совершеннолетний", f1.getName()) :
+                String.format("%s - не совершеннолетний", f1.getName()));
+
         f1.Speak();         // Может говорить
         f1.Walk();          // Может ходить
         f1.Sing();          // Может петь
 
         Mother m1 = new Mother("Lisa", 40, "female");
         m1.about();
+        m1.isLegalAgeDef(m1.getAge(), m1.getName());        //Использование дефолтного метода функционального интерфейса
         m1.Speak();         // Может говорить
         m1.Walk();          // Может ходить
         m1.Paint();         // Может рисовать
 
         Son s1 = new Son("Ric", 15, "male");
         s1.about();
+        IsLegalAge.isLegalAgeStat(s1.getAge(), s1.getName());   //Использование статического метода функционального интерфейса
         s1.Speak();         // Может говорить
         s1.Walk();          // Может ходить
         s1.Sing();          // Может петь

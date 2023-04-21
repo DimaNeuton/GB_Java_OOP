@@ -1,6 +1,6 @@
 package HomeTask02_1;
 
-public class Father extends Human implements SingSkill{
+public class Father extends Human implements SingSkill, IsLegalAge{
     public Father(String name, int age, String gender) {
         super(name, age, gender);
     }
@@ -13,5 +13,10 @@ public class Father extends Human implements SingSkill{
     @Override
     public void Sing() {
         System.out.printf("%s is singing\n", super.getName());
+    }
+
+    @Override
+    public Object isLegalAge(Object age) {
+        return null;
     }
 }

@@ -4,6 +4,7 @@ public abstract class Human {
     String name;
     String status;
     boolean permit;
+    String place;
 
     public Human(String name, String status, boolean permit) {
         this.name = name;
@@ -11,9 +12,34 @@ public abstract class Human {
         this.permit = permit;
     }
 
+    public Human(String name, String status, boolean permit, String place) {
+        this.name = name;
+        this.status = status;
+        this.permit = permit;
+        this.place = place;
+    }
+
+    public Human(String name, String status, String place) {
+        this.name = name;
+        this.status = status;
+        this.place = place;
+    }
+
     public Human(String name, String status) {
         this.name = name;
         this.status = status;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getPlace() {
+        return place;
+    }
+
+    public void setPlace(String place) {
+        this.place = place;
     }
 
     public void catCall(Cat cat, Human human) {         //Позвать кота
@@ -22,7 +48,12 @@ public abstract class Human {
     }
 
     public void about() {
-        System.out.printf("%s is %s\n", this.name, this.status);
+        if (!(this.place == null)) {
+            System.out.printf("%s is %s. %s\n", this.name, this.status, this.place);
+        } else {
+            System.out.printf("%s is %s.\n", this.name, this.status);
+        }
+
     }
 
     public void wardClose(Furniture furniture) {        //Закрыть шкаф

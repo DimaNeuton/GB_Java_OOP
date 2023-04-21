@@ -17,18 +17,24 @@ public class Task02 {
         w1.about();
         Cat c1 = new Cat("Barsik", "on wardrobe");
         c1.about();             // Кот на шкафу
-        h1.catCall(c1, h1);     // Брэд зовет кота
-        c1.about();             // Кот у Брэда
-        w1.catCall(c1, w1);     // Эми зовет кота
-        c1.about();             // Кот у Эми
+//        h1.catCall(c1, h1);     // Брэд зовет кота
+//        c1.about();             // Кот у Брэда
+//        w1.catCall(c1, w1);     // Эми зовет кота
+//        c1.about();             // Кот у Эми
         Furniture f1 = new Furniture("wardrobe", "closed");
         f1.about();
-        h1.wardOpen(w1, f1);    // Брэд хочет открыть шкаф (но нет разрешения от Эми)
-        w1.givePermit();        // Эми дает разрешение
-        h1.wardOpen(w1, f1);    // Брэд открывает шкаф
-        h1.wardClose(f1);       // Брэд закрывает шкаф
-        h1.wardOpen(w1, f1);    // Брэд открывает шкаф
-        h1.wardOpen(w1, f1);    // Брэд хочет открыть шкаф (но он уже открыт)
-        w1.wardClose(f1);       // Эми закрывает шкаф
+//        h1.wardOpen(w1, f1);    // Брэд хочет открыть шкаф (но нет разрешения от Эми)
+//        w1.givePermit();        // Эми дает разрешение
+//        h1.wardOpen(w1, f1);    // Брэд открывает шкаф
+//        h1.wardClose(f1);       // Брэд закрывает шкаф
+//        h1.wardOpen(w1, f1);    // Брэд открывает шкаф
+//        h1.wardOpen(w1, f1);    // Брэд хочет открыть шкаф (но он уже открыт)
+//        w1.wardClose(f1);       // Эми закрывает шкаф
+        WifeCall<String> wCall = (caller, walker) -> {          //Лямбда выражение
+            w1.setPlace(String.format("Near %s", caller));
+            System.out.printf("%s called %s\n", caller, walker);
+        };
+        wCall.WifeCall(h1.getName(), w1.getName());
+        w1.about();
     }
 }

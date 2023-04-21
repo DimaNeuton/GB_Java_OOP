@@ -1,6 +1,6 @@
 package HomeTask02_1;
 
-public class Mother extends Human implements PaintSkill{
+public class Mother extends Human implements PaintSkill, IsLegalAge{
     public Mother(String name, int age, String gender) {
         super(name, age, gender);
     }
@@ -13,5 +13,10 @@ public class Mother extends Human implements PaintSkill{
     @Override
     public void Paint() {
         System.out.printf("%s is painting\n", super.getName());
+    }
+
+    @Override
+    public Object isLegalAge(Object age) {
+        return null;
     }
 }
